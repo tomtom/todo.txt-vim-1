@@ -16,11 +16,11 @@ exec 'nnoremap <buffer>' (g:todotxt_mapleader .'t') '$:CopyTag<CR>'
 exec 'xnoremap <buffer>' (g:todotxt_mapleader .'t') '$:CopyTag<CR>'
 
 " Mark a task as done
-exec 'nnoremap <buffer>' (g:todotxt_mapleader .'d') ':TodoDone<CR>'
-exec 'xnoremap <buffer>' (g:todotxt_mapleader .'d') ':TodoDone<CR>'
+exec 'nnoremap <buffer>' (g:todotxt_mapleader .'D') ':TodoDone<CR>'
+exec 'xnoremap <buffer>' (g:todotxt_mapleader .'D') ':TodoDone<CR>'
 
-exec 'nnoremap <buffer>' (g:todotxt_mapleader .'x') ':TodoCancelled<CR>'
-exec 'xnoremap <buffer>' (g:todotxt_mapleader .'x') ':TodoCancelled<CR>'
+exec 'nnoremap <buffer>' (g:todotxt_mapleader .'X') ':TodoCancelled<CR>'
+exec 'xnoremap <buffer>' (g:todotxt_mapleader .'X') ':TodoCancelled<CR>'
 
 exec 'nnoremap <buffer>' (g:todotxt_mapleader .'j') '$:CopyTag<CR>:CopyDate<CR>:TodoDone<CR>'
 exec 'xnoremap <buffer>' (g:todotxt_mapleader .'j') '$:CopyTag<CR>:CopyDate<CR>::TodoDone<CR>'
@@ -29,6 +29,8 @@ exec 'xnoremap <buffer>' (g:todotxt_mapleader .'j') '$:CopyTag<CR>:CopyDate<CR>:
 exec 'nnoremap <buffer>' (g:todotxt_mapleader .'c') 'kmrj/^\s\+x <CR>ddGp:s/^\s\+//<CR>''r:nohlsearch<CR>'
 
 " Other macros
+exec 'nnoremap <buffer>' (g:todotxt_mapleader .'d') ':<C-U>exec "DueDate" v:count1<CR>'
+exec 'xnoremap <buffer>' (g:todotxt_mapleader .'d') ':<C-U>exec "DueDate" v:count1<CR>'
 exec 'nnoremap <buffer>' (g:todotxt_mapleader .'w') ':DueDate 7<CR>'
 exec 'xnoremap <buffer>' (g:todotxt_mapleader .'w') ':DueDate 7<CR>'
 exec 'nnoremap <buffer>' (g:todotxt_mapleader .'m') ':DueDate 30<CR>'

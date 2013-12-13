@@ -111,14 +111,21 @@ endfunction
 " Where <args> is the number of days before task is due
 function! todotxt#DueDate(days)
     let when = 3600 * 24 * a:days
-    let yearDue = strftime("%Y", localtime() + when)
-    if yearDue != strftime("%Y", localtime())
-        let format = "(%Y/%m/%d)"
-    else
-        let format = "(%m/%d)"
-    endif
+    " let yearDue = strftime("%Y", localtime() + when)
+    " if yearDue != strftime("%Y", localtime())
+        let format = g:todotxt#date_ymd
+    " else
+    "     let format = g:todotxt#date_md
+    " endif
     let due = strftime(format, localtime() + when)
-    execute "normal I" . due . " "
+    let date_rx = substitute(format, '%\w', '\\d\\+', 'g')
+    let due_rx = '\<due:'. date_rx .'\s\*'
+    let line = getline(line('.'))
+    if line =~ '\V'. due_rx
+        exec 's/\V'. escape(due_rx, '/') .'/due:'. escape(due, '/\') .'/'
+    else
+        exec "norm! Idue:" . due . " "
+    endif
 endfunction
 
 

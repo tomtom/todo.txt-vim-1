@@ -1,7 +1,7 @@
 " CopyTag: Searches for tags in todo.txt files
 " Author: Graham Davies <graham@grahamdavies.net>
 "         Tom Link (mailto:micathom AT gmail com?subject=[vim])
-" @Revision:    36
+" @Revision:    54
 
 
 if !exists('g:todotxt#dir')
@@ -171,7 +171,7 @@ endfunction
 " Adding an argument gives number of days in the past when done
 function! todotxt#TodoDone(...)
     let when = 3600 * 24 * a:0
-    let format = "%Y-%m-%d %H:%M "
+    let format = g:todotxt#date_ymd ." %H:%M "
     let doneDate = strftime(format, localtime() - when)
     execute "normal I" . "x " . doneDate
 endfunction                                   

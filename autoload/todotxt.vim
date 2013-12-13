@@ -1,7 +1,7 @@
 " CopyTag: Searches for tags in todo.txt files
 " Author: Graham Davies <graham@grahamdavies.net>
 "         Tom Link (mailto:micathom AT gmail com?subject=[vim])
-" @Revision:    33
+" @Revision:    36
 
 
 if !exists('g:todotxt#dir')
@@ -17,6 +17,16 @@ endif
 
 if !exists('g:todotxt#open')
     let g:todotxt#open = 'drop'   "{{{2
+endif
+
+
+if !exists('g:todotxt#date_md')
+    let g:todotxt#date_md = '%m-%d'   "{{{2
+endif
+
+
+if !exists('g:todotxt#date_ymd')
+    let g:todotxt#date_ymd = '%Y-%m-%d'   "{{{2
 endif
 
 

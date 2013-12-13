@@ -40,30 +40,30 @@ exec 'xnoremap <buffer>' (g:todotxt_mapleader .'r') 'zRmr:%sort! u<CR>''r'
 
 " abbreviations
 " can put these in .vimrc if useful for other file types
-iab <buffer> ddate <c-r>=strftime("%Y-%m-%d")<cr>
-iab <buffer> xdate <c-r>=strftime("%Y-%m-%d %H:%M")<cr>
-iab <buffer> tdate <c-r>=strftime("(%m/%d)")<cr>
+iab <buffer> ddate <c-r>=strftime(g:todotxt#date_ymd)<cr>
+iab <buffer> xdate <c-r>=strftime(g:todotxt#date_ymd ." %H:%M")<cr>
+iab <buffer> tdate <c-r>=strftime(g:todotxt#date_md)<cr>
 "iab <buffer> 7date <c-r>=strftime("(%m/%d)", localtime() + 3600*24*7)<cr>
 "iab <buffer> 1date <c-r>=strftime("(%m/%d)", localtime() + 3600*24*1)<cr>
 "iab <buffer> 2date <c-r>=strftime("(%m/%d)", localtime() + 3600*24*2)<cr>
 
-iab <buffer> 1days   <c-r>=substitute(system('date --date="+ 1 days"            +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 2days   <c-r>=substitute(system('date --date="+ 2 days"            +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 3days   <c-r>=substitute(system('date --date="+ 3 days"            +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 4days   <c-r>=substitute(system('date --date="+ 4 days"            +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 5days   <c-r>=substitute(system('date --date="+ 5 days"            +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 6days   <c-r>=substitute(system('date --date="+ 6 days"            +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 7days   <c-r>=substitute(system('date --date="+ 7 days"            +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> nmon    <c-r>=substitute(system('date --date="next monday"         +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> ntue    <c-r>=substitute(system('date --date="week tuesday"      +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> nwed    <c-r>=substitute(system('date --date="week wednesday"      +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> eotw    <c-r>=substitute(system('date --date="next friday"         +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> eonw    <c-r>=substitute(system('date --date="week friday"         +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 2weeks  <c-r>=substitute(system('date --date="+ 14 days"           +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 3weeks  <c-r>=substitute(system('date --date="+ 21 days"           +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 2months <c-r>=substitute(system('date --date="+ 60 days"           +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> 3months <c-r>=substitute(system('date --date="+ 90 days"           +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> eotm    <c-r>=substitute(system('date --date="next month - 1 day"  +\(%m/%d\)'),"\\n","","")<cr>
-iab <buffer> eoty    <c-r>=substitute(system('date --date="next year"           +\(%Y/%m/%d\)'),"\\n","","")<cr>
+iab <buffer> 1days   <c-r>=substitute(system('date --date="+ 1 days"            +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 2days   <c-r>=substitute(system('date --date="+ 2 days"            +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 3days   <c-r>=substitute(system('date --date="+ 3 days"            +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 4days   <c-r>=substitute(system('date --date="+ 4 days"            +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 5days   <c-r>=substitute(system('date --date="+ 5 days"            +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 6days   <c-r>=substitute(system('date --date="+ 6 days"            +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 7days   <c-r>=substitute(system('date --date="+ 7 days"            +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> nmon    <c-r>=substitute(system('date --date="next monday"         +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> ntue    <c-r>=substitute(system('date --date="week tuesday"        +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> nwed    <c-r>=substitute(system('date --date="week wednesday"      +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> eotw    <c-r>=substitute(system('date --date="next friday"         +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> eonw    <c-r>=substitute(system('date --date="week friday"         +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 2weeks  <c-r>=substitute(system('date --date="+ 14 days"           +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 3weeks  <c-r>=substitute(system('date --date="+ 21 days"           +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 2months <c-r>=substitute(system('date --date="+ 60 days"           +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> 3months <c-r>=substitute(system('date --date="+ 90 days"           +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> eotm    <c-r>=substitute(system('date --date="next month - 1 day"  +'. escape(g:todotxt#date_md, '()')),"\\n","","")<cr>
+iab <buffer> eoty    <c-r>=substitute(system('date --date="next year"           +'. escape(g:todotxt#date_ymd, '()')),"\\n","","")<cr>
 
 

@@ -1,6 +1,6 @@
 " @Author:      Tom Link (micathom AT gmail com?subject=[vim])
 " @GIT:         https://github.com/tomtom/todo.txt-vim-1
-" @Revision:    9
+" @Revision:    11
 " 
 
 if &cp || exists("loaded_todo")

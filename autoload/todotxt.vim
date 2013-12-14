@@ -67,6 +67,20 @@ function! todotxt#Open(basename) "{{{3
 endf
 
 
+function! todotxt#Fold(tags) "{{{3
+    if !exists('g:loaded_tinykeymap')
+        throw 'todotxt: Filter require the tinykeymap plugin to be installed'
+    endif
+    let tags = split(a:tags, '\s\+')
+    let tags = filter(tags, 'v:val =~ "^[+@]"')
+    if exists('g:loaded_tlib')
+        let tags = tlib#input#List('m', 'Select tags:', tags)
+    endif
+    let rx = printf('\V\(%s\)', join(tags, '\|'))
+    call tinykeymap#filter#Start(rx)
+endf
+
+
 " Tags are defined as +noSpace and can be several +tag1 +tag2 +tag3
 " Function should extract tag from surrounding text
 " (10/01) +tag description

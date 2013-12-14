@@ -9,6 +9,7 @@ command! -buffer -nargs=1 DueDate :call todotxt#DueDate(<f-args>)
 command! -buffer -nargs=0 MarkDue :call todotxt#MarkDue()
 command! -buffer -nargs=? TodoDone :call todotxt#TodoDone(<f-args>)
 command! -buffer -nargs=? TodoCancelled :call todotxt#TodoCancelled(<f-args>)
+command! -buffer -nargs=? -bar TodoFold call todotxt#Fold(empty(<q-args>) ? getline('.') : <q-args>)
 
 
 " Add a tag

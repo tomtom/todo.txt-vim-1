@@ -16,17 +16,17 @@ exec 'nnoremap <buffer>' (g:todotxt_mapleader .'t') '$:CopyTag<CR>'
 exec 'xnoremap <buffer>' (g:todotxt_mapleader .'t') '$:CopyTag<CR>'
 
 " Mark a task as done
-exec 'nnoremap <buffer>' (g:todotxt_mapleader .'D') ':TodoDone<CR>'
-exec 'xnoremap <buffer>' (g:todotxt_mapleader .'D') ':TodoDone<CR>'
+exec 'nnoremap <buffer>' (g:todotxt_mapleader .'x') ':TodoDone<CR>'
+exec 'xnoremap <buffer>' (g:todotxt_mapleader .'x') ':TodoDone<CR>'
 
-exec 'nnoremap <buffer>' (g:todotxt_mapleader .'X') ':TodoCancelled<CR>'
-exec 'xnoremap <buffer>' (g:todotxt_mapleader .'X') ':TodoCancelled<CR>'
+exec 'nnoremap <buffer>' (g:todotxt_mapleader .'c') ':TodoCancelled<CR>'
+exec 'xnoremap <buffer>' (g:todotxt_mapleader .'c') ':TodoCancelled<CR>'
 
 exec 'nnoremap <buffer>' (g:todotxt_mapleader .'j') '$:CopyTag<CR>:CopyDate<CR>:TodoDone<CR>'
 exec 'xnoremap <buffer>' (g:todotxt_mapleader .'j') '$:CopyTag<CR>:CopyDate<CR>::TodoDone<CR>'
 
 " Clear away indented done lines
-exec 'nnoremap <buffer>' (g:todotxt_mapleader .'c') 'kmrj/^\s\+x <CR>ddGp:s/^\s\+//<CR>''r:nohlsearch<CR>'
+" exec 'nnoremap <buffer>' (g:todotxt_mapleader .'c') 'kmrj/^\s\+x <CR>ddGp:s/^\s\+//<CR>''r:nohlsearch<CR>'
 
 " Other macros
 exec 'nnoremap <buffer>' (g:todotxt_mapleader .'d') ':<C-U>exec "DueDate" v:count1<CR>'

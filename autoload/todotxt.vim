@@ -1,7 +1,7 @@
 " CopyTag: Searches for tags in todo.txt files
 " Author: Graham Davies <graham@grahamdavies.net>
 "         Tom Link (mailto:micathom AT gmail com?subject=[vim])
-" @Revision:    54
+" @Revision:    66
 
 
 if !exists('g:todotxt#dir')
@@ -133,14 +133,20 @@ function! todotxt#DueDate(days)
     " endif
     let due = strftime(format, localtime() + when)
     let date_rx = substitute(format, '%\w', '\\d\\+', 'g')
-    let due_rx = '\<due:'. date_rx .'\s\*'
-    let line = getline(line('.'))
-    if line =~ '\V'. due_rx
-        exec 's/\V'. escape(due_rx, '/') .'/due:'. escape(due, '/\') .'/'
-    else
-        exec "norm! Idue:" . due . " "
-    endif
+    let due_rx = '\V\<due:'. date_rx .'\s\*'
+    call s:AddOrReplace(due_rx, 'due:'. due)
 endfunction
+
+
+function! s:AddOrReplace(pattern, replacement) "{{{3
+    let line = getline(line('.'))
+    if line =~ a:pattern
+        exec 's/\('. escape(a:pattern, '/') .'\|$\)/'. escape(a:replacement, '/\') .'/'
+    else
+        exec "norm! A " . a:replacement
+    endif
+    s/\s\+$//
+endf
 
 
 " DueNow: Searches for tasks that are due
